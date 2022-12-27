@@ -3,17 +3,16 @@ import './App.css'
 export default function Settings() {
   return (
     <div className="settings">
-      <span className="settings__title field-title">settings</span>
       <div className="setting">
-        <input type="checkbox" id="uppercase" checked />
+        <input type="checkbox" id="uppercase" />
         <label htmlFor="uppercase">Uppercase</label>
       </div>
       <div className="setting">
-        <input type="checkbox" id="lowercase" checked />
+        <input type="checkbox" id="lowercase" />
         <label htmlFor="lowercase">Lowercase</label>
       </div>
       <div className="setting">
-        <input type="checkbox" id="number" checked />
+        <input type="checkbox" id="number" />
         <label htmlFor="number">Numbers</label>
       </div>
       <div className="setting">
