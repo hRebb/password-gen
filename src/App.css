@@ -2,6 +2,8 @@ main {
   text-align: center;
   vertical-align: center;
   font-size: 12px;
-  line-height: 20vh; }
+  line-height: 20vh;
+  background: transparent linear-gradient(0deg, #10007A 10%, #0D1B2A 30%, #392F5A 73%, #5356A2 100%);
+  color: white; }
 
 /*# sourceMappingURL=App.css.map */
