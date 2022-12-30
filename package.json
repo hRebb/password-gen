@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "compass": "^0.1.1",
-    "compass-mixins": "^0.12.12"
+    "compass-mixins": "^0.12.12",
+    "react-input-range": "^1.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",

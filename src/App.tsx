@@ -4,6 +4,8 @@ import Generate from './Generate'
 import Result from './Result'
 import Length from './Length'
 
+console.clear()
+
 export default function App() {
   return (
     <main>

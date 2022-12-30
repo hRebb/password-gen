@@ -6,16 +6,11 @@ export default function Result() {
       <div className='result-title'>
         Generated Password
       </div>
-      <div className='result-copy'>
-        Click here to copy
-      </div>
-      <div className='result-past'>
-        Copied
-      </div>
       <div className='result-click' id='result-operation'>
         Generate your new password
       </div>
       <button className='btn-result' id='btn-copy'>
+        Click here to copy
         <i className='copy-item'></i>
       </button>
     </div>
