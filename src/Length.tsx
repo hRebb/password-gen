@@ -1,32 +1,27 @@
 import React from 'react'
-import InputRange from 'react-input-range'
-import { Range } from 'react-input-range'
+import { useState } from 'react'
 import './App.css'
 
-type LengthState = {
-  value: { min: number, max: number },
-}
 
+const Length: React.FC = () => {
+  const [value, setValue] = useState(20);
 
-class Length extends React.Component<{}, LengthState> {
-  constructor(props: any) {
-    super(props)
-    this.state = {
-      value: { min: 5, max: 20 },
-    };
-  }
-
-  render(): JSX.Element {
-    return (
-      <InputRange
-        minValue={5}
-        maxValue={20}
-        value={this.state.value}
-        onChange={(value: Range ) => this.setState({ value })}
+  return (
+    <>
+      <input
+        type="range"
+        min={5}
+        max={20}
+        step={1}
+        value={value}
+        onChange={(event) => {
+          setValue(parseInt(event.target.value));
+        }}
       />
-    );
-  }
-}
+      <p>Value: {value}</p>
+    </>
+  );
+};
 
 export default Length;
 
