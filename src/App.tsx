@@ -11,8 +11,8 @@ export default function App() {
     <main>
       <Result />
       <Settings />
-      <Length />
       <Generate />
+      <Length />
     </main>
   )
 }
