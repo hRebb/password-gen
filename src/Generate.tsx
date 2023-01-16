@@ -2,19 +2,15 @@ import './App.css'
 import React from 'react'
 
 interface Props {
-  settings: {
-    upperCase: boolean,
-    lowerCase: boolean,
-    numbers: boolean,
-    specialChars: boolean
-  }
-  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}, length: number) => number
+  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}, length: number) => void
+  settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean },
+  length: number
 }
 
-const Generate: React.FC<Props> = ({ onGenerate }) => {
+const Generate: React.FC<Props> = ({ onGenerate, settings, length }) => {
 
-  const handleClick = (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}, length: number, event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-   return onGenerate(settings, length)
+  const handleClick = () => {
+    onGenerate(settings, length)
   }
 
   return (

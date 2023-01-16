@@ -16,6 +16,7 @@ export default function App() {
     setLength(length)
     return length
   }
+
   
   const handleSettingsChange = (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}) => {
     setSettings(settings)
@@ -41,7 +42,7 @@ export default function App() {
     <main>
       <Result password={password} />
       <Settings onChange={handleSettingsChange} />
-      <Generate onGenerate= {handleGenerate} settings={settings}/>
+      <Generate onGenerate= {handleGenerate} settings={settings} length={length}/>
       <Length onChange={handleLengthChange}/>
     </main>
   )
