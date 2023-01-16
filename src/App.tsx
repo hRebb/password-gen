@@ -41,7 +41,7 @@ export default function App() {
     <main>
       <Result password={password} />
       <Settings onChange={handleSettingsChange} />
-      <Generate onGenerate= {handleGenerate} />
+      <Generate onGenerate= {handleGenerate} settings={settings}/>
       <Length onChange={handleLengthChange}/>
     </main>
   )

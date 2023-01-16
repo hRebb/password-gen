@@ -13,7 +13,9 @@ interface Props {
 
 const Generate: React.FC<Props> = ({ onGenerate }) => {
 
-  const handleClick = () => {}
+  const handleClick = (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}, length: number, event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+   return onGenerate(settings, length)
+  }
 
   return (
     <div>
