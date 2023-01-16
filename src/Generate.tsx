@@ -1,9 +1,27 @@
 import './App.css'
+import React from 'react'
 
-export default function Generate() {
+interface Props {
+  settings: {
+    upperCase: boolean,
+    lowerCase: boolean,
+    numbers: boolean,
+    specialChars: boolean
+  }
+  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}, length: number) => number
+}
+
+const Generate: React.FC<Props> = ({ onGenerate }) => {
+
+  const handleClick = () => {}
+
   return (
-    <div className="generate">
-      <button className="btn generate" id="generate">Generate Here</button>
+    <div>
+      <button onClick={handleClick}>
+        Generate
+      </button>
     </div>
   )
 }
+
+export default Generate

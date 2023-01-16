@@ -1,18 +1,26 @@
 import './App.css'
+import React, { useState } from 'react'
 
-export default function Result() {
+interface Props {
+  password: string
+}
+
+const Result: React.FC<Props> = ({ password }) => {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(password)
+    setCopied(true)
+  }
+
   return (
-    <div className='result'>
-      <div className='result-title'>
-        Generated Password
-      </div>
-      <div className='result-click' id='result-operation'>
-        Generate your new password
-      </div>
-      <button className='btn-result' id='btn-copy'>
-        Click here to copy
-        <i className='copy-item'></i>
+    <div>
+      <div>{password}</div>
+      <button onClick={handleCopy}>
+        {copied ? 'Copied' : 'Copy'}
       </button>
     </div>
   )
-}
+} 
+
+export default Result
