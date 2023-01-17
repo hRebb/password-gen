@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Settings from './Settings'
 import Generate from './Generate'
 import Result from './Result'
 import Length from './Length'
@@ -8,7 +7,6 @@ console.clear()
 
 export default function App() {
   
-  const [settings, setSettings] = useState({ upperCase: true, lowerCase: true, numbers: true, specialChars: true })
   const [length, setLength] = useState(12)
   const [password, setPassword] = useState('')
   
@@ -17,13 +15,7 @@ export default function App() {
     return length
   }
 
-  
-  const handleSettingsChange = (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}) => {
-    setSettings({...settings})
-    return true
-  }
-  
-  const handleGenerate = () => {
+  const handleGenerate = (settings: {upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}) => {
     
     const characters = 'abcdefghijklmnopqrstuvwxyz'
     const numbers = '0123456789'
@@ -56,8 +48,7 @@ export default function App() {
   return (
     <main>
       <Result password={password} />
-      <Settings onChange={handleSettingsChange} />
-      <Generate onGenerate= {handleGenerate} settings={settings} length={length}/>
+      <Generate onGenerate= {handleGenerate} length={length}/>
       <Length onChange={handleLengthChange}/>
     </main>
   )
