@@ -1,4 +1,3 @@
-import './App.css'
 import React, {useState} from 'react'
 
 interface Props {
@@ -6,29 +5,54 @@ interface Props {
 }
 
 const Settings: React.FC<Props> = ({ onChange }) => {
-  const [settings, setSettings] = useState({upperCase: true, lowerCase: true, numbers: true, specialChars: true})
+  const [upperCase, setUpperCase] = useState(true)
+  const [lowerCase, setLowerCase] = useState(true)
+  const [numbers, setNumbers] = useState(true)
+  const [specialChars, setSpecialChars] = useState(true)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSettings({...settings, [event.target.name]: event.target.checked })
-    onChange(settings)
+    const target= event.target
+
+    if(target.name === "upperCase") {
+      setUpperCase(target.checked)
+    }
+
+    if(target.name === "lowerCase") {
+      setLowerCase(target.checked)
+    }
+
+    if(target.name === "numbers") {
+      setNumbers(target.checked)
+    }
+
+    if (target.name === "specialChars") {
+      setSpecialChars(target.checked)
+    }
   }
 
   return (
     <div>
       <label>
-        <input type="checkbox" name="upperCase" checked={settings.upperCase} onChange={handleChange} />
+        <input type="checkbox" name="upperCase" checked={upperCase} onChange={handleChange} />
         Upper case
       </label>
+      <br />
       <label>
-        <input type="checkbox" name="lowerCase" checked={settings.lowerCase} onChange={handleChange} />
+        <input type="checkbox" name="lowerCase" checked={lowerCase} onChange={handleChange} />
         Lower case
       </label>
+      
+      <br />
+      
       <label>
-        <input type="checkbox" name="numbers" checked={settings.numbers} onChange={handleChange} />
+        <input type="checkbox" name="numbers" checked={numbers} onChange={handleChange} />
         Numbers
       </label>
+      
+      <br />
+      
       <label>
-        <input type="checkbox" name="specialChars" checked={settings.specialChars} onChange={handleChange} />
+        <input type="checkbox" name="specialChars" checked={specialChars} onChange={handleChange} />
         Special characters
       </label>
     </div>

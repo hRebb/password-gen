@@ -1,4 +1,3 @@
-import './App.css'
 import { useState } from 'react'
 import Settings from './Settings'
 import Generate from './Generate'
@@ -8,6 +7,7 @@ import Length from './Length'
 console.clear()
 
 export default function App() {
+  
   const [settings, setSettings] = useState({ upperCase: true, lowerCase: true, numbers: true, specialChars: true })
   const [length, setLength] = useState(12)
   const [password, setPassword] = useState('')
@@ -22,6 +22,7 @@ export default function App() {
     setSettings(settings)
     return true
   }
+  
   const handleGenerate = () => {
     const characters = 'abcdefghijklmnopqrstuvwxyz'
     const numbers = '0123456789'
@@ -38,6 +39,7 @@ export default function App() {
     setPassword(generatedPassword)
     return Math.random()
   }
+  
   return (
     <main>
       <Result password={password} />

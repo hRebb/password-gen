@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import './App.css'
 
 interface Props {
   onChange: (lengthInput: number) => number
