@@ -1,26 +1,32 @@
 import './App.css'
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 interface Props {
-  password: string
+  password: string;
 }
 
 const Result: React.FC<Props> = ({ password }) => {
-  const [copied, setCopied] = useState(false)
+  const [isCopied, setIsCopied] = useState(false);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(password)
-    setCopied(true)
-  }
+  const handleCopyClick = () => {
+    navigator.clipboard.writeText(password).then(
+      () => {
+        setIsCopied(true);
+      },
+      (err) => {
+        console.error("Could not copy text: ", err);
+      }
+    );
+  };
 
   return (
     <div>
       <div>{password}</div>
-      <button onClick={handleCopy}>
-        {copied ? 'Copied' : 'Copy'}
+      <button onClick={handleCopyClick}>
+        {isCopied ? "Copied!" : "Copy"}
       </button>
     </div>
-  )
-} 
+  );
+};
 
-export default Result
+export default Result;
