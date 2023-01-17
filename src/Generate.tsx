@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 interface Props {
-  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}, length: number) => void,
+  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: string, specialChars: string}, length: number) => void,
   length: number
 }
 
