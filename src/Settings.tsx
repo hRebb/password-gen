@@ -28,6 +28,8 @@ const Settings: React.FC<Props> = ({ onChange }) => {
     if (target.name === "specialChars") {
       setSpecialChars(target.checked)
     }
+
+    onChange({ upperCase, lowerCase, numbers, specialChars })
   }
 
   return (

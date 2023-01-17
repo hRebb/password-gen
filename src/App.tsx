@@ -19,25 +19,38 @@ export default function App() {
 
   
   const handleSettingsChange = (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}) => {
-    setSettings(settings)
+    setSettings({...settings})
     return true
   }
   
   const handleGenerate = () => {
+    
     const characters = 'abcdefghijklmnopqrstuvwxyz'
     const numbers = '0123456789'
     const specialChars = '!@#$%^&*'
     let generatedPassword = ''
 
     for (let i = 0; i < length; i++) {
-      let charSet = settings.lowerCase ? characters : ''
-      charSet += settings.upperCase ? characters.toUpperCase(): ''
-      charSet += settings.numbers ? numbers: ''
-      charSet += settings.specialChars ? specialChars: ''
+      let charSet = ''
+      if (settings.lowerCase) {
+        charSet += characters
+      }
+
+      if (settings.upperCase) {
+        charSet += characters.toUpperCase()
+      }
+
+      if (settings.numbers) {
+        charSet += numbers
+      }
+
+      if (settings.specialChars) {
+        charSet += specialChars
+      }
+      
       generatedPassword += charSet.charAt(Math.floor(Math.random() * charSet.length)) 
     }
     setPassword(generatedPassword)
-    return Math.random()
   }
   
   return (
