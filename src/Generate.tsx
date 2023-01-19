@@ -1,15 +1,15 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 interface Props {
-  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}, length: number) => void,
+  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: string | boolean, specialChars: string | boolean }, length: number) => void,
   length: number
 }
 
 const Generate: React.FC<Props> = ({ onGenerate, length }) => {
-  const [upperCase, setUpperCase] = useState(true)
-  const [lowerCase, setLowerCase] = useState(true)
-  const [numbers, setNumbers] = useState(true)
-  const [specialChars, setSpecialChars] = useState(true)
+  const [upperCase, setUpperCase] = useState(false)
+  const [lowerCase, setLowerCase] = useState(false)
+  const [numbers, setNumbers] = useState(false)
+  const [specialChars, setSpecialChars] = useState(false)
   const [password, setPassword] = useState('')
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,56 +30,68 @@ const Generate: React.FC<Props> = ({ onGenerate, length }) => {
   }
 
   const handleClick = () => {
-    const characters = 'abcdefghijklmnopqrstuvwxyz'
-    const numbers = '0123456789'
-    const specialChars = '!@#$%^&*'
+    let charSet = ''
+    if (upperCase) {
+      charSet += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    }
+    if (lowerCase) {
+      charSet += 'abcdefghijklmnopqrstuvwxyz'
+    }
+    if (numbers) {
+      charSet += '0123456789'
+    }
+    if (specialChars) {
+      charSet += '!@#$%^&*'
+    }
     let generatedPassword = ''
-
     for (let i = 0; i < length; i++) {
-      let charSet = lowerCase ? characters : ''
-
-      if (upperCase) {
-        charSet += characters.toUpperCase()
-      }
-      if (numbers) {
-        charSet += numbers
-      }
-      if (specialChars) {
-        charSet += specialChars
-      }
-
       generatedPassword += charSet.charAt(Math.floor(Math.random() * charSet.length))
     }
-    setPassword(generatedPassword)
-    onGenerate({upperCase, lowerCase, numbers, specialChars}, length)
+    if (charSet.length === 0) {
+      setPassword("")
+    } else {
+      setPassword(generatedPassword)
+    }
+    onGenerate({ upperCase, lowerCase, numbers, specialChars }, length)
+  }
+
+  const handleReset = () => {
+    setUpperCase(false);
+    setLowerCase(false);
+    setNumbers(false);
+    setSpecialChars(false);
+    setPassword('')
+    onGenerate('', '')
   }
   return (
     <div>
       <label>
         <input type="checkbox" name="upperCase" checked={upperCase} onChange={handleChange} />
-UpperCase
+        UpperCase
       </label>
       <br />
       <label>
         <input type="checkbox" name="lowerCase" checked={lowerCase} onChange={handleChange} />
-LowerCase
+        LowerCase
       </label>
       <br />
-  
+
       <label>
         <input type="checkbox" name="numbers" checked={numbers} onChange={handleChange} />
-    Numbers
+        Numbers
       </label>
-  
+
       <br />
-  
+
       <label>
         <input type="checkbox" name="specialChars" checked={specialChars} onChange={handleChange} />
-    Special characters
+        Special characters
       </label>
-      <br/>
+      <br /><br />
       <button onClick={handleClick}>Generate</button>
-  </div>
+      <br /><br />
+      <button onClick={handleReset} >Reset</button>
+    </div>
   )
 }
 
