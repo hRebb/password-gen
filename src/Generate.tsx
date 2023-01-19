@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 interface Props {
-  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: string, specialChars: string}, length: number) => void,
+  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean}, length: number) => void,
   length: number
 }
 
@@ -26,6 +26,7 @@ const Generate: React.FC<Props> = ({ onGenerate, length }) => {
     if (target.name === "specialChars") {
       setSpecialChars(target.checked)
     }
+    onGenerate({ upperCase, lowerCase, numbers, specialChars }, length)
   }
 
   const handleClick = () => {
@@ -35,10 +36,8 @@ const Generate: React.FC<Props> = ({ onGenerate, length }) => {
     let generatedPassword = ''
 
     for (let i = 0; i < length; i++) {
-      let charSet = ''
-      if (lowerCase) {
-        charSet += characters.toLowerCase()
-      }
+      let charSet = lowerCase ? characters : ''
+
       if (upperCase) {
         charSet += characters.toUpperCase()
       }
