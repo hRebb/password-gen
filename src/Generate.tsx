@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './checkbox.css'
 
 interface Props {
   onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: string | boolean, specialChars: string | boolean }, length: number) => void,
