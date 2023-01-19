@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import './App.css'
+import './input.css'
 
 interface Props {
   onChange: (lengthInput: number) => number
@@ -14,8 +16,8 @@ const Length: React.FC<Props> = ({ onChange }) => {
   }
 
   return (
-    <div>
-      <p>
+    <div className='lengthField'>
+      <p className='passlength'>
         Password length : {lengthInput}
       </p>
       <label>

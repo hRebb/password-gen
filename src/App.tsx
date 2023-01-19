@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Generate from './Generate'
 import Result from './Result'
 import Length from './Length'
+import './App.css'
 
 console.clear()
 

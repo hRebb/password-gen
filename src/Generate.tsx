@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './checkbox.css'
 
 interface Props {
   onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: string | boolean, specialChars: string | boolean }, length: number) => void,
@@ -64,33 +65,29 @@ const Generate: React.FC<Props> = ({ onGenerate, length }) => {
     onGenerate('', '')
   }
   return (
-    <div>
-      <label>
-        <input type="checkbox" name="upperCase" checked={upperCase} onChange={handleChange} />
+    <div className='generateField'>
+      <label className='checkboxingCase'>
+        <input className='checkbox' type="checkbox" name="upperCase" checked={upperCase} onChange={handleChange} />
         UpperCase
       </label>
-      <br />
-      <label>
-        <input type="checkbox" name="lowerCase" checked={lowerCase} onChange={handleChange} />
+     
+      <label className='checkboxingCase'>
+        <input className='checkbox' type="checkbox" name="lowerCase" checked={lowerCase} onChange={handleChange} />
         LowerCase
       </label>
-      <br />
+     
 
-      <label>
-        <input type="checkbox" name="numbers" checked={numbers} onChange={handleChange} />
+      <label className='checkboxingCase'>
+        <input className='checkbox' type="checkbox" name="numbers" checked={numbers} onChange={handleChange} />
         Numbers
       </label>
 
-      <br />
-
-      <label>
-        <input type="checkbox" name="specialChars" checked={specialChars} onChange={handleChange} />
+      <label className='checkboxingCase'>
+        <input className='checkbox' type="checkbox" name="specialChars" checked={specialChars} onChange={handleChange} />
         Special characters
       </label>
-      <br /><br />
-      <button onClick={handleClick}>Generate</button>
-      <br /><br />
-      <button onClick={handleReset} >Reset</button>
+      <button className='btnGenerate' onClick={handleClick}>Generate</button>
+      <button className='btnReseting' onClick={handleReset} >Reset</button>
     </div>
   )
 }

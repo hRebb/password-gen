@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './App.css'
 
 interface Props {
   password: string;
@@ -19,9 +20,9 @@ const Result: React.FC<Props> = ({ password }) => {
   };
 
   return (
-    <div>
-      <div>{password}</div>
-      <button onClick={handleCopyClick}>
+    <div className='passwordField'>
+      <div className="passwordGenerated">{password}</div>
+      <button className="copyclik" onClick={handleCopyClick}>
         {isCopied ? "Copied!" : "Copy"}
       </button>
     </div>

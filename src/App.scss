@@ -8,12 +8,78 @@
   )
 }
 
+@mixin gradient ($border, $shadow, $first, $second) {
+  border-radius: 10% / 50%;
+  border-radius: 10% / 50%;
+  box-shadow: 3px 4px 0px 0px $shadow;
+  background: linear-gradient(to bottom, $first 5%, $second 100%);
+  border: 1px solid $border;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none;
+}
 
+@mixin linear-hover ($primary, $secondary) {
+  background: linear-gradient(to bottom, $primary 5%, $secondary 100%);
+  background-color: $primary
+}
+
+/* Main composent */
 main {
   text-align: center;
   vertical-align: center;
-  font-size: 12px;
   line-height: 20vh;
-  @include darkGradient(0);
   color: white;
+  background-color: #85FFBD;
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  color: darkblue;
+  font-size: large;
+  font-style: italic;
+  font-family: math;
+}
+
+button {
+  @include gradient(#240404, #060d3a, #d92c1d, #480000);
+
+  &:hover {
+    @include linear-hover (#660700, #0b5aab);
+  }
+}
+
+/* Generate Composent */
+.generateField {
+  display: inline-grid;
+}
+
+.checkboxingCase {
+  height: 130px;
+  margin-bottom: -50px;
+}
+
+.btnGenerate {
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+
+/* Length Composent */
+.passlength {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    height: 45px;
+}
+
+/* Result Composent */
+.passwordField {
+  margin-bottom: 30px;
+  height: 200px;
+}
+
+.passwordGenerated {
+  @include darkGradient(0);
+  height: auto;
+  color: white;
+  border-radius: 3% 22% 29% 69%;
 }

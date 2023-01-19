@@ -1,9 +1,59 @@
+/* Main composent */
 main {
   text-align: center;
   vertical-align: center;
-  font-size: 12px;
   line-height: 20vh;
+  color: white;
+  background-color: #85FFBD;
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  color: darkblue;
+  font-size: large;
+  font-style: italic;
+  font-family: math; }
+
+button {
+  border-radius: 10% / 50%;
+  border-radius: 10% / 50%;
+  box-shadow: 3px 4px 0px 0px #060d3a;
+  background: linear-gradient(to bottom, #d92c1d 5%, #480000 100%);
+  border: 1px solid #240404;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none; }
+  button:hover {
+    background: linear-gradient(to bottom, #660700 5%, #0b5aab 100%);
+    background-color: #660700; }
+
+/* Generate Composent */
+.generateField {
+  display: inline-grid; }
+
+.checkboxingCase {
+  height: 130px;
+  margin-bottom: -50px; }
+
+.btnGenerate {
+  margin-top: 45px;
+  margin-bottom: 15px; }
+
+/* Length Composent */
+.passlength {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  height: 45px; }
+
+/* Result Composent */
+.passwordField {
+  margin-bottom: 30px;
+  height: 200px; }
+
+.passwordGenerated {
   background: transparent linear-gradient(0deg, #10007A 10%, #0D1B2A 30%, #392F5A 73%, #5356A2 100%);
-  color: white; }
+  height: auto;
+  color: white;
+  border-radius: 3% 22% 29% 69%; }
 
 /*# sourceMappingURL=App.css.map */
