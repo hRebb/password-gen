@@ -60,8 +60,8 @@ const Generate: React.FC<Props> = ({ onGenerate, length }) => {
     setLowerCase(false);
     setNumbers(false);
     setSpecialChars(false);
-    setPassword('')
-    onGenerate(false, '')
+    setPassword('');
+    onGenerate({ upperCase: false, lowerCase: false, numbers: false, specialChars: false }, 0)
   }
   return (
     <div className='generateField'>
