@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 interface Props {
-  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: string | boolean, specialChars: string | boolean }, length: number) => void,
+  onGenerate: (settings: { upperCase: boolean, lowerCase: boolean, numbers: boolean, specialChars: boolean }, length: number) => void,
   length: number
 }
 
@@ -61,7 +61,7 @@ const Generate: React.FC<Props> = ({ onGenerate, length }) => {
     setNumbers(false);
     setSpecialChars(false);
     setPassword('')
-    onGenerate('', '')
+    onGenerate(false, '')
   }
   return (
     <div className='generateField'>
